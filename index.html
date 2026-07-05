@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DEL-systems – Digital Efficiency Labs. KI-Automatisierung für Unternehmen, die smarter skalieren wollen.">
+  <title>DEL-systems | Digital Efficiency Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Ambient background -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__orb ambient__orb--1"></div>
+    <div class="ambient__orb ambient__orb--2"></div>
+    <div class="ambient__grid"></div>
+  </div>
+
+  <!-- Floating Glass Navbar -->
+  <header class="navbar" id="navbar">
+    <nav class="navbar__inner" aria-label="Hauptnavigation">
+      <a href="index.html" class="navbar__logo" aria-label="DEL-systems Startseite">
+        <img src="assets/DEL-Logo.svg" alt="DEL-systems Logo" width="180" height="42">
+      </a>
+
+      <div class="navbar__right">
+        <ul class="navbar__links">
+          <li><a href="index.html#pakete" class="navbar__link">Produkt-Pakete</a></li>
+          <li><a href="about.html" class="navbar__link">Über uns</a></li>
+        </ul>
+
+        <a href="#kontakt" class="navbar__cta">
+          <span>Kontakt</span>
+          <svg class="navbar__cta-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M3.75 9H14.25M14.25 9L9.75 4.5M14.25 9L9.75 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Digital Efficiency Labs
+        </div>
+        <h1 class="hero__title">
+          KI-Automatisierung,<br>
+          <span class="hero__title-accent">die Ihr Business skaliert.</span>
+        </h1>
+        <p class="hero__subtitle">
+          Maßgeschneiderte KI-Agenten, die repetitive Arbeit übernehmen – 
+          damit Ihr Team sich auf das Wesentliche konzentrieren kann.
+        </p>
+        <div class="hero__actions">
+          <a href="#pakete" class="btn btn--primary">Pakete entdecken</a>
+          <a href="#kontakt" class="btn btn--ghost">Live testen</a>
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__robot-glow"></div>
+        <img src="assets/robot.svg" alt="" class="hero__robot" width="260" height="332">
+      </div>
+    </section>
+
+    <!-- Scroll Story -->
+    <div class="story" id="story">
+      <div class="story__track">
+
+        <section class="story__section story__section--1" data-section="1">
+          <div class="story__inner">
+            <div class="story__text">
+              <span class="story__label">Problem</span>
+              <h2 class="story__heading">Ihre Mitarbeiter sind keine Maschinen.</h2>
+              <p class="story__body">
+                Trotzdem verbringen sie 40&nbsp;% ihrer Arbeitszeit mit sich wiederholenden Aufgaben: 
+                E-Mails beantworten, Termine hin- und herverschieben und Daten kopieren. 
+                Das kostet Sie bares Geld und wertvolle Motivation.
+              </p>
+            </div>
+            <div class="story__graphic">
+              <div class="graphic-placeholder">
+                <div class="graphic-placeholder__glow"></div>
+                <svg class="graphic-placeholder__icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+                  <path d="M20 40C24 28 40 28 44 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="26" cy="26" r="3" fill="currentColor" opacity="0.6"/>
+                  <circle cx="38" cy="26" r="3" fill="currentColor" opacity="0.6"/>
+                </svg>
+                <span class="graphic-placeholder__label">Grafik Platzhalter</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="story__section story__section--2" data-section="2">
+          <div class="story__inner story__inner--reverse">
+            <div class="story__text">
+              <span class="story__label">Lösung</span>
+              <h2 class="story__heading">Die digitale Spätschicht – die nie schläft.</h2>
+              <p class="story__body">
+                Unsere maßgeschneiderten KI-Agenten übernehmen dort, wo der Mensch aufhört. 
+                Sie qualifizieren Leads um 3&nbsp;Uhr morgens, beantworten komplexe Kundenanfragen 
+                in Sekundenschnelle und buchen Termine direkt in Ihren Kalender. Vollautomatisch. Fehlerfrei.
+              </p>
+            </div>
+            <div class="story__graphic">
+              <div class="graphic-placeholder graphic-placeholder--cyan">
+                <div class="graphic-placeholder__glow"></div>
+                <svg class="graphic-placeholder__icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <rect x="12" y="20" width="40" height="28" rx="4" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                  <path d="M20 32H44M32 24V40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="48" cy="16" r="6" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                </svg>
+                <span class="graphic-placeholder__label">Grafik Platzhalter</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="story__section story__section--3" data-section="3">
+          <div class="story__inner">
+            <div class="story__text">
+              <span class="story__label">Vertrauen</span>
+              <h2 class="story__heading">Sofort einsatzbereit. Nahtlos integriert.</h2>
+              <p class="story__body">
+                Keine monatelangen IT-Projekte. Wir entwickeln KI-Lösungen, die innerhalb weniger Tage 
+                live gehen und genau die Sprache Ihrer Brand sprechen. Sie füttern die KI mit Ihrem Wissen – 
+                wir bauen das System, das Ihr Business skaliert.
+              </p>
+            </div>
+            <div class="story__graphic">
+              <div class="graphic-placeholder">
+                <div class="graphic-placeholder__glow"></div>
+                <svg class="graphic-placeholder__icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <path d="M16 40L32 16L48 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                  <path d="M24 40H40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>
+                </svg>
+                <span class="graphic-placeholder__label">Grafik Platzhalter</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="story__section story__section--4" data-section="4">
+          <div class="story__inner story__inner--reverse">
+            <div class="story__text">
+              <span class="story__label">Ausblick</span>
+              <h2 class="story__heading">Enterprise-Automatisierung auf Next-Level.</h2>
+              <p class="story__body">
+                Sie wollen Ihre gesamte Supply-Chain, komplexe ERP-Systeme oder tiefe Datenbank-Prozesse 
+                automatisieren? DEL-systems Advanced entwickelt High-End-Architekturen für maximale Skalierung. 
+                Aufgrund der hohen Nachfrage sind die Plätze für Custom-Deep-Tech-Projekte in diesem Quartal 
+                streng limitiert. Sprechen Sie uns für einen Wartelistenplatz an.
+              </p>
+            </div>
+            <div class="story__graphic">
+              <div class="graphic-placeholder graphic-placeholder--cyan">
+                <div class="graphic-placeholder__glow"></div>
+                <svg class="graphic-placeholder__icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <rect x="14" y="14" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                  <rect x="34" y="14" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                  <rect x="14" y="34" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                  <rect x="34" y="34" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+                  <path d="M30 22H34M30 42H34M22 30V34M42 30V34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+                </svg>
+                <span class="graphic-placeholder__label">Grafik Platzhalter</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pakete">
+      <div class="pricing__header">
+        <span class="section-label">Produkt-Pakete</span>
+        <h2 class="section-title">Wählen Sie Ihren KI-Agenten</h2>
+        <p class="section-subtitle">Transparente Preise. Keine versteckten Kosten. Sofort startklar.</p>
+      </div>
+
+      <div class="pricing__grid">
+        <article class="pricing-card">
+          <div class="pricing-card__icon">
+            <img src="assets/icon-basis.svg" alt="" width="48" height="48">
+          </div>
+          <h3 class="pricing-card__name">Basis KI-Agent</h3>
+          <div class="pricing-card__price">
+            <span class="pricing-card__setup">499€ Setup</span>
+            <span class="pricing-card__monthly">+ 39€ / Monat</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>E-Mail-Automatisierung</li>
+            <li>FAQ-Beantwortung</li>
+            <li>Basis-Integrationen</li>
+          </ul>
+          <a href="#kontakt" class="pricing-card__btn">Jetzt anfragen</a>
+        </article>
+
+        <article class="pricing-card pricing-card--featured">
+          <div class="pricing-card__badge">Beliebt</div>
+          <div class="pricing-card__icon">
+            <img src="assets/icon-sales.svg" alt="" width="48" height="48">
+          </div>
+          <h3 class="pricing-card__name">Sales &amp; Support KI</h3>
+          <div class="pricing-card__price">
+            <span class="pricing-card__setup">995€ Setup</span>
+            <span class="pricing-card__monthly">+ 79€ / Monat</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>Lead-Qualifizierung 24/7</li>
+            <li>Terminbuchung</li>
+            <li>CRM-Integration</li>
+            <li>Multi-Channel-Support</li>
+          </ul>
+          <a href="#kontakt" class="pricing-card__btn pricing-card__btn--featured">Jetzt anfragen</a>
+        </article>
+
+        <article class="pricing-card">
+          <div class="pricing-card__icon">
+            <img src="assets/icon-deep.svg" alt="" width="48" height="48">
+          </div>
+          <h3 class="pricing-card__name">Deep Automation</h3>
+          <div class="pricing-card__price">
+            <span class="pricing-card__setup">1.499€ Setup</span>
+            <span class="pricing-card__monthly">+ 149€ / Monat</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>ERP-Anbindung</li>
+            <li>Custom Workflows</li>
+            <li>Datenbank-Automatisierung</li>
+            <li>Dedizierter Support</li>
+          </ul>
+          <a href="#kontakt" class="pricing-card__btn">Jetzt anfragen</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer / Lead Bot -->
+    <section class="lead" id="kontakt">
+      <div class="lead__content">
+        <h2 class="lead__title">Genug gelesen. Testen Sie uns live.</h2>
+        <p class="lead__subtitle">Stellen Sie unserer KI Ihre Fragen – direkt hier auf der Seite.</p>
+        <div class="lead__bot-container">
+          <div class="lead__bot-glow" aria-hidden="true"></div>
+          <div class="lead__bot-placeholder">
+            <div class="lead__bot-icon">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <rect x="8" y="12" width="32" height="24" rx="6" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="18" cy="24" r="3" fill="currentColor" opacity="0.6"/>
+                <circle cx="30" cy="24" r="3" fill="currentColor" opacity="0.6"/>
+                <path d="M24 36V40M16 40H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+              </svg>
+            </div>
+            <p class="lead__bot-text">KI-Bot Platzhalter</p>
+            <span class="lead__bot-hint">Hier wird Ihr Chatbot eingebettet</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <img src="assets/DEL-Logo.svg" alt="DEL-systems" class="footer__logo" width="120" height="28">
+      <p class="footer__copy">&copy; 2026 DEL-systems · Digital Efficiency Labs</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
