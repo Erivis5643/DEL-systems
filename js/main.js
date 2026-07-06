@@ -10,57 +10,173 @@
   const storySections = document.querySelectorAll('.story__section');
 
   let ticking = false;
-  let lastScrollY = 0;
 
-  /* ---- Navbar scroll state ---- */
   function updateNavbar() {
     if (!navbar) return;
+    navbar.classList.toggle('is-scrolled', window.scrollY > 60);
+    ticking = false;
+  }
 
-    const scrollY = window.scrollY;
-    const threshold = 60;
+  function initStoryStack() {
+    if (!storyTrack || storySections.length === 0) return;
 
-    if (scrollY > threshold) {
-      navbar.classList.add('is-scrolled');
-    } else {
-      navbar.classList.remove('is-scrolled');
+    const total = Array.from(storySections).reduce(
+      (sum, section) => sum + section.offsetHeight,
+      0
+    );
+    storyTrack.style.height = `${Math.max(total, storySections.length * window.innerHeight)}px`;
+  }
+
+  function smoothstep(value) {
+    const t = Math.min(1, Math.max(0, value));
+    return t * t * (3 - 2 * t);
+  }
+
+  const STORY_MASK_STOPS = [
+    [0, 1],
+    [62, 1],
+    [74, 0.9],
+    [86, 0.55],
+    [94, 0.2],
+    [100, 0],
+  ];
+
+  function buildStoryOutroMask(progress) {
+    const parts = STORY_MASK_STOPS.map(([pos, alpha]) => {
+      const value = pos <= 62 ? 1 : 1 - progress * (1 - alpha);
+      return `rgba(0, 0, 0, ${value}) ${pos}%`;
+    });
+
+    return `linear-gradient(to bottom, ${parts.join(', ')})`;
+  }
+
+  function clearStoryOutroMask(section4) {
+    section4.style.webkitMaskImage = '';
+    section4.style.maskImage = '';
+  }
+
+  function updateStoryOutroGlow() {
+    const section4 = storySections[storySections.length - 1];
+    if (!section4 || !storyTrack) return;
+
+    const rect4 = section4.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    if (rect4.top > 1 || rect4.bottom <= 0) {
+      clearStoryOutroMask(section4);
+      return;
     }
 
-    lastScrollY = scrollY;
-    ticking = false;
+    const trackRect = storyTrack.getBoundingClientRect();
+    const remaining = trackRect.bottom - vh;
+    const fadeRange = vh * 2.4;
+    const raw = 1 - remaining / fadeRange;
+    const progress = smoothstep(raw);
+    const mask = buildStoryOutroMask(progress);
+
+    section4.style.webkitMaskImage = mask;
+    section4.style.maskImage = mask;
+  }
+
+  function updateStoryParallax() {
+    const section4 = storySections[storySections.length - 1];
+    const rect4 = section4 ? section4.getBoundingClientRect() : null;
+    const hideLowerSections = rect4
+      ? rect4.top <= 1 && rect4.bottom > 0
+      : false;
+
+    storySections.forEach((section, index) => {
+      const isLowerSection = index < storySections.length - 1;
+
+      if (isLowerSection) {
+        section.style.visibility = hideLowerSections ? 'hidden' : '';
+      }
+
+      const rect = section.getBoundingClientRect();
+      const text = section.querySelector('.story__text');
+      const graphic = section.querySelector('.story__graphic');
+      const isLocked = rect.top <= 2 && rect.top >= -8 && rect.bottom > window.innerHeight * 0.5;
+
+      if (isLocked) {
+        const progress = Math.min(1, Math.abs(rect.top) / (window.innerHeight * 0.5));
+        if (text) {
+          text.style.transform = `translateY(${progress * 12}px)`;
+          text.style.opacity = String(1 - progress * 0.15);
+        }
+        if (graphic) {
+          graphic.style.transform = `translateY(${progress * -8}px)`;
+        }
+      } else {
+        if (text) {
+          text.style.transform = '';
+          text.style.opacity = '';
+        }
+        if (graphic) {
+          graphic.style.transform = '';
+        }
+      }
+    });
   }
 
   function onScroll() {
     if (!ticking) {
-      requestAnimationFrame(updateNavbar);
+      requestAnimationFrame(() => {
+        updateNavbar();
+        updateStoryParallax();
+        updateStoryOutroGlow();
+      });
       ticking = true;
     }
   }
 
-  /* ---- Story stacking: set track height for proper scroll distance ---- */
-  function initStoryStack() {
-    if (!storyTrack || storySections.length === 0) return;
+  function initSmoothAnchors() {
+    document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (!href || !href.includes('#')) return;
 
-    const sectionCount = storySections.length;
-    // Each section needs ~100vh of scroll space; last section doesn't need extra
-    const totalHeight = sectionCount * 100;
-    storyTrack.style.height = `${totalHeight}vh`;
+        const targetId = href.substring(href.indexOf('#'));
+        if (targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        e.preventDefault();
+
+        const navEl = navbar || document.getElementById('navbar');
+        const navbarHeight = navEl
+          ? navEl.offsetHeight + (parseFloat(getComputedStyle(navEl).top) || 0)
+          : 0;
+        const targetY = target.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
+
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      });
+    });
   }
 
-  /* ---- Subtle parallax on story text while section is active ---- */
-  function updateStoryParallax() {
-    storySections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      const viewportH = window.innerHeight;
+  function init() {
+    initStoryStack();
+    initSmoothAnchors();
 
-      if (rect.top <= 0 && rect.bottom > viewportH * 0.3) {
-        const progress = Math.min(1, Math.abs(rect.top) / (viewportH * 0.5));
-        const text = section.querySelector('.story__text');
-        const graphic = section.querySelector('.story__graphic');
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', initStoryStack);
+    window.addEventListener('resize', () => {
+      initStoryStack();
+      updateStoryParallax();
+      updateStoryOutroGlow();
+    });
 
-        if (text) {
-          text.style.transform = `translateY(${progress * 20}px)`;
-          text.style.opacity = String(1 - progress * 0.3);
-        }
+    updateNavbar();
+    updateStoryParallax();
+    updateStoryOutroGlow();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
         if (graphic) {
           graphic.style.transform = `translateY(${progress * -15}px) scale(${1 - progress * 0.03})`;
         }
