@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="DEL-systems – Digital Efficiency Labs. KI-Automatisierung für Unternehmen, die smarter skalieren wollen.">
   <title>DEL-systems | Digital Efficiency Labs</title>
+  <link rel="preload" href="assets/robot.svg" as="image" type="image/svg+xml">
+  <link rel="preload" href="assets/DEL-Logo.svg" as="image" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
@@ -54,22 +56,27 @@
           Digital Efficiency Labs
         </div>
         <h1 class="hero__title">
-          KI-Automatisierung,<br>
+          KI-Automatisierung,<br class="hero__title-break">
           <span class="hero__title-accent">die Ihr Business skaliert.</span>
         </h1>
         <p class="hero__subtitle">
-          Maßgeschneiderte KI-Agenten, die repetitive Arbeit übernehmen – 
-          damit Ihr Team sich auf das Wesentliche konzentrieren kann.
+          Maßgeschneiderte KI-Agenten, die repetitive Arbeit übernehmen –<br class="u-only-mobile">
+          damit Ihr Team sich auf das Wesentliche<br class="u-only-mobile">
+          konzentrieren kann.
         </p>
-        <div class="hero__actions">
-          <a href="#pakete" class="btn btn--primary">Pakete entdecken</a>
-          <a href="#kontakt" class="btn btn--ghost">Live testen</a>
-        </div>
       </div>
       <div class="hero__visual" aria-hidden="true">
         <div class="hero__robot-glow"></div>
-        <img src="assets/robot.svg" alt="" class="hero__robot" width="185" height="236">
+        <img src="assets/robot.svg" alt="" class="hero__robot" width="185" height="236" fetchpriority="high" decoding="async">
       </div>
+      <div class="hero__actions">
+        <a href="#pakete" class="btn btn--primary">Pakete entdecken</a>
+        <a href="#kontakt" class="btn btn--ghost">Live testen</a>
+      </div>
+      <a href="#kontakt" class="hero__scroll-cue" aria-label="Zum Demo-Bot scrollen">
+        <span class="hero__scroll-cue-label">demo-bot unten</span>
+        <span class="hero__scroll-cue-arrow" aria-hidden="true">↓</span>
+      </a>
     </section>
 
     <!-- Scroll Story -->
@@ -194,7 +201,7 @@
       <div class="pricing__grid">
         <article class="pricing-card">
           <div class="pricing-card__icon">
-            <img src="assets/icon-basis.svg" alt="" width="48" height="48">
+            <img src="assets/icon-basis.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
           </div>
           <h3 class="pricing-card__name">Basis KI-Agent</h3>
           <div class="pricing-card__price">
@@ -212,7 +219,7 @@
         <article class="pricing-card pricing-card--featured">
           <div class="pricing-card__badge">Beliebt</div>
           <div class="pricing-card__icon">
-            <img src="assets/icon-sales.svg" alt="" width="48" height="48">
+            <img src="assets/icon-sales.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
           </div>
           <h3 class="pricing-card__name">Sales &amp; Support KI</h3>
           <div class="pricing-card__price">
@@ -230,7 +237,7 @@
 
         <article class="pricing-card">
           <div class="pricing-card__icon">
-            <img src="assets/icon-deep.svg" alt="" width="48" height="48">
+            <img src="assets/icon-deep.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
           </div>
           <h3 class="pricing-card__name">Deep Automation</h3>
           <div class="pricing-card__price">
@@ -275,8 +282,9 @@
 
   <footer class="footer">
     <div class="footer__inner">
-      <img src="assets/DEL-Logo.svg" alt="DEL-systems" class="footer__logo" width="120" height="28">
+      <img src="assets/DEL-Logo.svg" alt="DEL-systems" class="footer__logo" width="120" height="28" loading="lazy" decoding="async">
       <p class="footer__copy">&copy; 2026 DEL-systems · Digital Efficiency Labs</p>
+      <p class="footer__contact">E-Mail: <a href="mailto:info@del-systems.at">info@del-systems.at</a></p>
     </div>
   </footer>
 
