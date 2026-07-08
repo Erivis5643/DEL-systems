@@ -129,6 +129,26 @@
     });
   }
 
+  function updateStoryPanelOpacity() {
+    if (!hasStory) return;
+    const vh = window.innerHeight;
+
+    storySections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const inZone = rect.top <= 2 && rect.bottom > vh * 0.35;
+
+      if (!inZone) {
+        section.style.removeProperty('--story-panel-alpha');
+        return;
+      }
+
+      // Towards the end of a locked card, gradually become less transparent.
+      const progress = Math.min(1, Math.abs(rect.top) / (vh * 0.62));
+      const alpha = 0.62 + progress * 0.24;
+      section.style.setProperty('--story-panel-alpha', alpha.toFixed(3));
+    });
+  }
+
   function onScroll() {
     if (!ticking) {
       requestAnimationFrame(() => {
@@ -136,6 +156,9 @@
         if (hasStory && !shouldLightenEffects) {
           updateStoryParallax();
           updateStoryOutroGlow();
+        }
+        if (hasStory) {
+          updateStoryPanelOpacity();
         }
       });
       ticking = true;
@@ -162,7 +185,10 @@
           : 0;
         const targetY = target.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
 
-        window.scrollTo({ top: targetY, behavior: 'smooth' });
+        window.scrollTo({
+          top: targetY,
+          behavior: shouldLightenEffects ? 'auto' : 'smooth'
+        });
       });
     });
   }
@@ -184,6 +210,7 @@
           updateStoryParallax();
           updateStoryOutroGlow();
         }
+        updateStoryPanelOpacity();
       }
     });
 
@@ -193,6 +220,7 @@
         updateStoryParallax();
         updateStoryOutroGlow();
       }
+      updateStoryPanelOpacity();
     }
   }
 
