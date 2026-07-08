@@ -5,9 +5,18 @@
 (function () {
   'use strict';
 
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   const navbar = document.getElementById('navbar');
   const storyTrack = document.querySelector('.story__track');
   const storySections = document.querySelectorAll('.story__section');
+  const hasStory = Boolean(storyTrack && storySections.length > 0);
+  const mqMobile = window.matchMedia('(max-width: 768px)');
+  const mqCoarse = window.matchMedia('(pointer: coarse)');
+  const shouldLightenEffects = mqMobile.matches || mqCoarse.matches;
 
   let ticking = false;
 
@@ -18,7 +27,7 @@
   }
 
   function initStoryStack() {
-    if (!storyTrack || storySections.length === 0) return;
+    if (!hasStory || !storyTrack) return;
 
     const total = Array.from(storySections).reduce(
       (sum, section) => sum + section.offsetHeight,
@@ -56,6 +65,7 @@
   }
 
   function updateStoryOutroGlow() {
+    if (!hasStory) return;
     const section4 = storySections[storySections.length - 1];
     if (!section4 || !storyTrack) return;
 
@@ -79,6 +89,7 @@
   }
 
   function updateStoryParallax() {
+    if (!hasStory) return;
     const section4 = storySections[storySections.length - 1];
     const rect4 = section4 ? section4.getBoundingClientRect() : null;
     const hideLowerSections = rect4
@@ -122,8 +133,10 @@
     if (!ticking) {
       requestAnimationFrame(() => {
         updateNavbar();
-        updateStoryParallax();
-        updateStoryOutroGlow();
+        if (hasStory && !shouldLightenEffects) {
+          updateStoryParallax();
+          updateStoryOutroGlow();
+        }
       });
       ticking = true;
     }
@@ -155,87 +168,32 @@
   }
 
   function init() {
-    initStoryStack();
+    window.scrollTo(0, 0);
+    if (hasStory) initStoryStack();
     initSmoothAnchors();
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('load', initStoryStack);
-    window.addEventListener('resize', () => {
-      initStoryStack();
-      updateStoryParallax();
-      updateStoryOutroGlow();
+    window.addEventListener('load', () => {
+      window.scrollTo(0, 0);
+      if (hasStory) initStoryStack();
     });
-
-    updateNavbar();
-    updateStoryParallax();
-    updateStoryOutroGlow();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-        if (graphic) {
-          graphic.style.transform = `translateY(${progress * -15}px) scale(${1 - progress * 0.03})`;
-        }
-      } else {
-        const text = section.querySelector('.story__text');
-        const graphic = section.querySelector('.story__graphic');
-        if (text) {
-          text.style.transform = '';
-          text.style.opacity = '';
-        }
-        if (graphic) {
-          graphic.style.transform = '';
+    window.addEventListener('resize', () => {
+      if (hasStory) {
+        initStoryStack();
+        if (!shouldLightenEffects) {
+          updateStoryParallax();
+          updateStoryOutroGlow();
         }
       }
     });
-  }
-
-  function onScrollCombined() {
-    onScroll();
-    updateStoryParallax();
-  }
-
-  /* ---- Smooth anchor offset for fixed navbar ---- */
-  function initSmoothAnchors() {
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', (e) => {
-        const targetId = anchor.getAttribute('href');
-        if (targetId === '#') return;
-
-        const target = document.querySelector(targetId);
-        if (!target) return;
-
-        e.preventDefault();
-        const navEl = navbar || document.getElementById('navbar');
-        const navbarHeight = navEl
-          ? navEl.offsetHeight + (parseFloat(getComputedStyle(navEl).top) || 0)
-          : 0;
-        const targetY = target.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
-
-        window.scrollTo({
-          top: targetY,
-          behavior: 'smooth',
-        });
-      });
-    });
-  }
-
-  /* ---- Init ---- */
-  function init() {
-    initStoryStack();
-    initSmoothAnchors();
-
-    window.addEventListener('scroll', onScrollCombined, { passive: true });
-    window.addEventListener('resize', () => {
-      initStoryStack();
-      updateStoryParallax();
-    });
 
     updateNavbar();
+    if (hasStory) {
+      if (!shouldLightenEffects) {
+        updateStoryParallax();
+        updateStoryOutroGlow();
+      }
+    }
   }
 
   if (document.readyState === 'loading') {
