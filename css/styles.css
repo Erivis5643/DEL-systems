@@ -452,6 +452,7 @@ ul {
     clamp(1rem, 5vw, 3rem)
     clamp(1rem, 2.8vh, 1.8rem);
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .hero__content {
@@ -510,6 +511,19 @@ ul {
   word-break: normal;
   hyphens: auto;
   text-wrap: balance;
+}
+
+.hero__title-main {
+  display: block;
+}
+
+.hero__title-sub {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: clamp(0.52em, 0.92vw, 0.62em);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--accent-light);
 }
 
 .hero__title-break {
@@ -680,7 +694,7 @@ ul {
   display: flex;
   align-items: center;
   padding: 2rem 5vw;
-  background: rgba(13, 27, 42, 0.5);
+  background: rgba(13, 27, 42, var(--story-panel-alpha, 0.62));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-top: 1px solid rgba(94, 234, 212, 0.14);
@@ -688,6 +702,7 @@ ul {
     inset 0 1px 0 rgba(94, 234, 212, 0.08),
     inset 0 -1px 0 rgba(0, 0, 0, 0.12);
   overflow: hidden;
+  transition: background-color 0.28s ease;
 }
 
 .story__section::before {
@@ -877,6 +892,67 @@ ul {
   align-items: stretch;
   padding-top: 1.5rem;
   overflow: visible;
+}
+
+.pricing__table-wrapper {
+  margin: 3rem auto 0;
+  max-width: 1100px;
+}
+
+.pricing__table-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 1rem;
+}
+
+.pricing__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.9rem;
+  background: rgba(13, 27, 42, 0.8);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid rgba(94, 234, 212, 0.2);
+}
+
+.pricing__table th,
+.pricing__table td {
+  padding: 0.7rem 0.75rem;
+  text-align: left;
+}
+
+.pricing__table thead {
+  background: rgba(0, 194, 203, 0.1);
+}
+
+.pricing__table th:first-child {
+  width: 40%;
+}
+
+.pricing__table th:nth-child(2),
+.pricing__table th:nth-child(3),
+.pricing__table th:nth-child(4),
+.pricing__table td:nth-child(2),
+.pricing__table td:nth-child(3),
+.pricing__table td:nth-child(4) {
+  width: 20%;
+}
+
+.pricing__table tbody tr:nth-child(even) {
+  background: rgba(13, 27, 42, 0.9);
+}
+
+.pricing__table tbody tr:nth-child(odd) {
+  background: rgba(13, 27, 42, 0.8);
+}
+
+.pricing__table td:nth-child(n + 2) {
+  text-align: center;
 }
 
 .pricing-card {
@@ -1314,6 +1390,7 @@ ul {
     margin-left: auto;
     margin-right: auto;
     font-size: clamp(0.92rem, 2.6vw + 0.35rem, 1.15rem);
+    color: rgba(234, 242, 245, 0.88);
     max-width: 100%;
     width: 100%;
   }
@@ -1323,6 +1400,7 @@ ul {
     max-width: 24rem;
     margin-inline: auto;
     width: 100%;
+    align-self: center;
   }
 
   .hero__scroll-cue {
@@ -1406,11 +1484,19 @@ ul {
     line-height: 1.18;
     max-width: 100%;
     width: 100%;
+    hyphens: none;
+    text-wrap: pretty;
+  }
+
+  .hero__title-break {
+    display: none;
   }
 
   .hero__subtitle {
     font-size: clamp(1.08rem, 3.6vw + 0.25rem, 1.28rem);
     line-height: 1.75;
+    color: rgba(234, 242, 245, 0.9);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.22);
     padding-inline: 0;
     max-width: 100%;
     width: 100%;
@@ -1552,6 +1638,35 @@ ul {
     margin-bottom: 2.5rem;
   }
 
+  .pricing__table-wrapper {
+    margin-top: 2.2rem;
+  }
+
+  .pricing__table {
+    font-size: 0.78rem;
+  }
+
+  .pricing__table th,
+  .pricing__table td {
+    padding: 0.56rem 0.38rem;
+  }
+
+  .pricing__table th {
+    text-align: center;
+  }
+
+  .pricing__table th:first-child,
+  .pricing__table td:first-child {
+    text-align: left;
+    width: 40%;
+  }
+
+  .pricing__table td:nth-child(2),
+  .pricing__table td:nth-child(3),
+  .pricing__table td:nth-child(4) {
+    text-align: center;
+  }
+
   .pricing-card__name {
     font-size: clamp(1.1rem, 3vw + 0.3rem, 1.25rem);
   }
@@ -1599,7 +1714,8 @@ ul {
 
   .hero__subtitle {
     margin-bottom: 0.65rem;
-    line-height: 1.65;
+    line-height: 1.7;
+    color: rgba(234, 242, 245, 0.92);
     max-width: 100%;
   }
 
@@ -1785,6 +1901,66 @@ ul {
   .hero__scroll-cue {
     right: 0.65rem;
     bottom: max(0.15rem, env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Keep CTAs visible on shorter desktop screens */
+@media (min-width: 901px) and (max-height: 820px) {
+  .hero {
+    gap: clamp(0.8rem, 2.2vw, 1.7rem);
+    padding:
+      calc(var(--navbar-expanded-height) + var(--navbar-margin) * 2 + 0.45rem)
+      clamp(1rem, 4vw, 2.2rem)
+      0.8rem;
+  }
+
+  .hero__title {
+    font-size: clamp(1.9rem, 2.6vw + 0.3rem, 3rem);
+    margin-bottom: 0.55rem;
+    line-height: 1.04;
+  }
+
+  .hero__subtitle {
+    font-size: clamp(0.95rem, 0.9vw + 0.35rem, 1.08rem);
+    margin-bottom: 0.55rem;
+    line-height: 1.5;
+  }
+
+  .hero__visual {
+    height: clamp(150px, 24vh, 235px);
+  }
+
+  .hero__robot {
+    width: clamp(130px, 12vw, 170px);
+  }
+
+  .hero__actions {
+    align-self: start;
+    margin-top: 0;
+  }
+
+  .btn {
+    padding: 0.64rem 1.15rem;
+    font-size: 0.84rem;
+  }
+}
+
+@media (min-width: 901px) and (max-height: 720px) {
+  .hero {
+    padding-bottom: 0.55rem;
+    gap: clamp(0.6rem, 1.7vw, 1.2rem);
+  }
+
+  .hero__title {
+    font-size: clamp(1.72rem, 2.2vw + 0.28rem, 2.55rem);
+  }
+
+  .hero__visual {
+    height: clamp(132px, 21vh, 195px);
+  }
+
+  .hero__robot {
+    width: clamp(118px, 10.5vw, 150px);
   }
 }
 
