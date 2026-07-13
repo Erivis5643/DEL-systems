@@ -32,12 +32,17 @@
 
       <div class="navbar__right">
         <ul class="navbar__links">
-          <li><a href="index.html#pakete" class="navbar__link navbar__link--pakete"><span class="navbar__link-full">Produkt-Pakete</span><span class="navbar__link-short">Pakete</span></a></li>
-          <li><a href="about.html" class="navbar__link">Über uns</a></li>
+          <li><a href="index.html#pakete" class="navbar__link navbar__link--pakete"><span class="navbar__link-full" data-i18n="nav.packages">Produkt-Pakete</span><span class="navbar__link-short" data-i18n="nav.packages_short">Pakete</span></a></li>
+          <li><a href="about.html" class="navbar__link" data-i18n="nav.about">Über uns</a></li>
+          <li>
+            <button class="lang-switch" id="langSwitch" aria-label="Switch language">
+              <span class="lang-switch__label" id="langLabel">EN</span>
+            </button>
+          </li>
         </ul>
 
         <a href="#kontakt" class="navbar__cta">
-          <span>Kontakt</span>
+          <span data-i18n="nav.contact">Kontakt</span>
           <svg class="navbar__cta-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
             <path d="M3.75 9H14.25M14.25 9L9.75 4.5M14.25 9L9.75 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -56,10 +61,10 @@
           Digital Efficiency Labs
         </div>
         <h1 class="hero__title">
-          <span class="hero__title-main">Mehr Umsatz. Weniger Aufwand.</span>
-          <span class="hero__title-sub">KI-Automatisierung, die Ihr Business skaliert.</span>
+          <span class="hero__title-main" data-i18n="hero.title_main">Mehr Umsatz. Weniger Aufwand.</span>
+          <span class="hero__title-sub" data-i18n="hero.title_sub">KI-Automatisierung, die Ihr Business skaliert.</span>
         </h1>
-        <p class="hero__subtitle">
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
           Testen Sie unseren KI-Agenten eine Woche lang kostenlos – ganz ohne Risiko für Sie.
         </p>
       </div>
@@ -68,11 +73,11 @@
         <img src="assets/robot.svg" alt="" class="hero__robot" width="185" height="236" fetchpriority="high" decoding="async">
       </div>
       <div class="hero__actions">
-        <a href="#pakete" class="btn btn--primary">Pakete entdecken</a>
-        <a href="#kontakt" class="btn btn--ghost">Live testen</a>
+        <a href="#pakete" class="btn btn--primary" data-i18n="hero.cta_packages">Pakete entdecken</a>
+        <a href="#kontakt" class="btn btn--ghost" data-i18n="hero.cta_demo">Live testen</a>
       </div>
       <a href="#kontakt" class="hero__scroll-cue" aria-label="Zum Demo-Bot scrollen">
-        <span class="hero__scroll-cue-label">demo-bot unten</span>
+        <span class="hero__scroll-cue-label" data-i18n="hero.scroll_cue">demo-bot unten</span>
         <span class="hero__scroll-cue-arrow" aria-hidden="true">↓</span>
       </a>
     </section>
@@ -84,19 +89,17 @@
         <section class="story__section story__section--1" data-section="1">
           <div class="story__inner">
             <div class="story__text">
-              <span class="story__label">Problem</span>
-              <h2 class="story__heading">Ihr Team sollte keine Zeit mit Routineaufgaben verschwenden.</h2>
-              <p class="story__body">
+              <span class="story__label" data-i18n="story1.label">Problem</span>
+              <h2 class="story__heading" data-i18n="story1.heading">Ihr Team sollte keine Zeit mit Routineaufgaben verschwenden.</h2>
+              <p class="story__body" data-i18n="story1.body">
                 Viele Mitarbeiter verbringen einen erheblichen Teil ihrer Arbeitszeit mit sich
                 wiederholenden Aufgaben: E-Mails beantworten, Termine verschieben, Daten manuell
-                uebertragen. Das kostet Zeit, Geld - und am Ende auch Motivation.
+                übertragen. Das kostet Zeit, Geld – und am Ende auch Motivation.
               </p>
             </div>
-            <div class="story__graphic">
-              <div class="graphic-placeholder">
-                <div class="graphic-placeholder__glow"></div>
-                <img src="assets/loop.svg" alt="" class="graphic-placeholder__illustration" width="280" height="251" loading="lazy" decoding="async">
-              </div>
+            <div class="story__graphic story__graphic--frameless">
+              <div class="graphic-frameless__glow graphic-frameless__glow--loop"></div>
+              <img src="assets/loop.svg" alt="" class="graphic-frameless__illustration" width="280" height="251" loading="lazy" decoding="async">
             </div>
           </div>
         </section>
@@ -104,20 +107,18 @@
         <section class="story__section story__section--2" data-section="2">
           <div class="story__inner story__inner--reverse">
             <div class="story__text">
-              <span class="story__label">Lösung</span>
-              <h2 class="story__heading">Der digitale Kundensupport, der nie schläft.</h2>
-              <p class="story__body">
-                Unsere maßgeschneiderten KI-Agenten uebernehmen dort, wo der Mensch an seine
-                Grenzen stoesst: Sie qualifizieren Leads rund um die Uhr, beantworten
-                Kundenanfragen in Sekundenschnelle und buchen Termine direkt in Ihrem Kalender -
-                zuverlaessig, konsistent und ohne Wartezeiten.
+              <span class="story__label" data-i18n="story2.label">Lösung</span>
+              <h2 class="story__heading" data-i18n="story2.heading">Der digitale Kundensupport, der nie schläft.</h2>
+              <p class="story__body" data-i18n="story2.body">
+                Unsere maßgeschneiderten KI-Agenten übernehmen dort, wo der Mensch an seine
+                Grenzen stößt: Sie qualifizieren Leads rund um die Uhr, beantworten
+                Kundenanfragen in Sekundenschnelle und buchen Termine direkt in Ihrem Kalender –
+                zuverlässig, konsistent und ohne Wartezeiten.
               </p>
             </div>
-            <div class="story__graphic">
-              <div class="graphic-placeholder graphic-placeholder--cyan">
-                <div class="graphic-placeholder__glow"></div>
-                <img src="assets/working-robot.svg" alt="" class="graphic-placeholder__illustration" width="280" height="223" loading="lazy" decoding="async">
-              </div>
+            <div class="story__graphic story__graphic--frameless">
+              <div class="graphic-frameless__glow"></div>
+              <img src="assets/working-robot.svg" alt="" class="graphic-frameless__illustration" width="280" height="223" loading="lazy" decoding="async">
             </div>
           </div>
         </section>
@@ -125,21 +126,19 @@
         <section class="story__section story__section--3" data-section="3">
           <div class="story__inner">
             <div class="story__text">
-              <span class="story__label">Vertrauen</span>
-              <h2 class="story__heading">Eine Woche testen. Null Risiko fuer Sie.</h2>
-              <p class="story__body">
-                Bevor Sie sich entscheiden, ueberzeugen Sie sich selbst: Bei Basis KI-Agent und
-                Sales &amp; Support KI erhalten Sie eine volle Woche kostenlosen Testbetrieb -
-                unverbindlich und ohne jegliche Kosten. Zeigt sich, dass der Agent fuer Ihr
-                Business funktioniert, fuehren wir die Zusammenarbeit gemeinsam fort. Ueberzeugt
-                es Sie nicht, zahlen Sie nichts - ganz einfach.
+              <span class="story__label" data-i18n="story3.label">Vertrauen</span>
+              <h2 class="story__heading" data-i18n="story3.heading">Eine Woche testen. Null Risiko für Sie.</h2>
+              <p class="story__body" data-i18n="story3.body">
+                Bevor Sie sich entscheiden, überzeugen Sie sich selbst: Bei Basis KI-Agent und
+                Sales &amp; Support KI erhalten Sie eine volle Woche kostenlosen Testbetrieb –
+                unverbindlich und ohne jegliche Kosten. Zeigt sich, dass der Agent für Ihr
+                Business funktioniert, führen wir die Zusammenarbeit gemeinsam fort. Überzeugt
+                es Sie nicht, zahlen Sie nichts – ganz einfach.
               </p>
             </div>
-            <div class="story__graphic">
-              <div class="graphic-placeholder">
-                <div class="graphic-placeholder__glow"></div>
-                <img src="assets/gift-robot.svg" alt="" class="graphic-placeholder__illustration" width="280" height="266" loading="lazy" decoding="async">
-              </div>
+            <div class="story__graphic story__graphic--frameless">
+              <div class="graphic-frameless__glow"></div>
+              <img src="assets/gift-robot.svg" alt="" class="graphic-frameless__illustration" width="280" height="266" loading="lazy" decoding="async">
             </div>
           </div>
         </section>
@@ -147,49 +146,40 @@
         <section class="story__section story__section--4" data-section="4">
           <div class="story__inner story__inner--flow">
             <div class="story__text">
-              <span class="story__label">ABLAUF</span>
-              <h2 class="story__heading">Von Ihrer Website direkt zu Ihrem persoenlichen KI-Agenten.</h2>
+              <span class="story__label" data-i18n="story4.label">ABLAUF</span>
+              <h2 class="story__heading" data-i18n="story4.heading">Von Ihrer Website direkt zu Ihrem persönlichen KI-Agenten.</h2>
               <div class="story__flow" aria-label="Ablauf in vier Schritten">
                 <div class="story__flow-step">
                   <div class="story__flow-badge">
                     <span class="story__flow-number">1</span>
                     <img src="assets/chatting.svg" alt="" class="story__flow-icon" width="40" height="40" loading="lazy" decoding="async">
                   </div>
-                  <h3 class="story__flow-title">Kurzes Kennenlernen</h3>
-                  <p class="story__flow-text">In einem kurzen Gespraech (z. B. per Zoom) besprechen wir gemeinsam, was Ihr KI-Agent koennen soll und wie er zu Ihrem Business passt.</p>
+                  <h3 class="story__flow-title" data-i18n="flow1.title">Kurzes Kennenlernen</h3>
+                  <p class="story__flow-text" data-i18n="flow1.text">In einem kurzen Gespräch (z. B. per Zoom) besprechen wir gemeinsam, was Ihr KI-Agent können soll und wie er zu Ihrem Business passt.</p>
                 </div>
                 <div class="story__flow-step">
                   <div class="story__flow-badge">
                     <span class="story__flow-number">2</span>
-                    <svg class="story__flow-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                      <rect x="7" y="9" width="34" height="28" rx="4" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
-                      <path d="M7 16H41" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-                      <circle cx="12" cy="12.5" r="1.2" fill="currentColor" opacity="0.75"/>
-                      <circle cx="16" cy="12.5" r="1.2" fill="currentColor" opacity="0.6"/>
-                      <path d="M14 25H27M14 30H23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-                    </svg>
+                    <img src="assets/page.svg" alt="" class="story__flow-icon" width="40" height="40" loading="lazy" decoding="async">
                   </div>
-                  <h3 class="story__flow-title">Automatische Vorbereitung</h3>
-                  <p class="story__flow-text">Parallel dazu analysieren wir Ihre Website, damit Ihr Agent von Anfang an weiss, was Sie anbieten - ohne dass Sie uns alles doppelt erklaeren muessen.</p>
+                  <h3 class="story__flow-title" data-i18n="flow2.title">Automatische Vorbereitung</h3>
+                  <p class="story__flow-text" data-i18n="flow2.text">Parallel dazu analysieren wir Ihre Website, damit Ihr Agent von Anfang an weiß, was Sie anbieten – ohne dass Sie uns alles doppelt erklären müssen.</p>
                 </div>
                 <div class="story__flow-step">
                   <div class="story__flow-badge">
                     <span class="story__flow-number">3</span>
-                    <svg class="story__flow-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                      <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="1.5" opacity="0.45"/>
-                      <path d="M21 18L31 24L21 30V18Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                    </svg>
+                    <img src="assets/gear.svg" alt="" class="story__flow-icon" width="40" height="40" loading="lazy" decoding="async">
                   </div>
-                  <h3 class="story__flow-title">Eine Woche live, kostenlos</h3>
-                  <p class="story__flow-text">Ihr KI-Agent geht fuer eine Woche in den Testbetrieb. Sie erleben live, wie er arbeitet - ganz ohne Risiko.</p>
+                  <h3 class="story__flow-title" data-i18n="flow3.title">Eine Woche live, kostenlos</h3>
+                  <p class="story__flow-text" data-i18n="flow3.text">Ihr KI-Agent geht für eine Woche in den Testbetrieb. Sie erleben live, wie er arbeitet – ganz ohne Risiko.</p>
                 </div>
                 <div class="story__flow-step">
                   <div class="story__flow-badge">
                     <span class="story__flow-number">4</span>
                     <img src="assets/hand-shake.svg" alt="" class="story__flow-icon" width="40" height="40" loading="lazy" decoding="async">
                   </div>
-                  <h3 class="story__flow-title">Gemeinsam weiterwachsen</h3>
-                  <p class="story__flow-text">Zeigt sich, dass sich die Investition fuer Sie rechnet, starten wir gemeinsam in die regulaere Zusammenarbeit - zu fairen, transparenten Konditionen.</p>
+                  <h3 class="story__flow-title" data-i18n="flow4.title">Gemeinsam weiterwachsen</h3>
+                  <p class="story__flow-text" data-i18n="flow4.text">Zeigt sich, dass sich die Investition für Sie rechnet, starten wir gemeinsam in die reguläre Zusammenarbeit – zu fairen, transparenten Konditionen.</p>
                 </div>
               </div>
             </div>
@@ -202,9 +192,9 @@
     <!-- Pricing -->
     <section class="pricing" id="pakete">
       <div class="pricing__header">
-        <span class="section-label">Produkt-Pakete</span>
-        <h2 class="section-title">Wählen Sie Ihren KI-Agenten</h2>
-        <p class="section-subtitle">Transparente Preise. Keine versteckten Kosten. Eine Woche kostenlos testen.</p>
+        <span class="section-label" data-i18n="pricing.label">Produkt-Pakete</span>
+        <h2 class="section-title" data-i18n="pricing.title">Wählen Sie Ihren KI-Agenten</h2>
+        <p class="section-subtitle" data-i18n="pricing.subtitle">Transparente Preise. Keine versteckten Kosten. Eine Woche kostenlos testen.</p>
       </div>
 
       <div class="pricing__grid">
@@ -212,124 +202,106 @@
           <div class="pricing-card__icon">
             <img src="assets/icon-basis.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
           </div>
-          <h3 class="pricing-card__name">Basis KI-Agent</h3>
+          <h3 class="pricing-card__name" data-i18n="pkg1.name">Basis KI-Agent</h3>
           <div class="pricing-card__price">
-            <span class="pricing-card__trial">1 Woche kostenlos testen. Danach:</span>
+            <span class="pricing-card__trial" data-i18n="pkg1.trial">1 Woche kostenlos testen. Danach:</span>
             <span class="pricing-card__setup">499€ Setup</span>
-            <span class="pricing-card__monthly">+ 39€ / Monat</span>
+            <span class="pricing-card__monthly">+ 39€ / <span data-i18n="pricing.month">Monat</span></span>
           </div>
           <ul class="pricing-card__features">
-            <li>E-Mail-Automatisierung</li>
-            <li>FAQ-Beantwortung</li>
-            <li>Basis-Integrationen</li>
+            <li data-i18n="pkg1.f1">E-Mail-Automatisierung</li>
+            <li data-i18n="pkg1.f2">FAQ-Beantwortung</li>
+            <li data-i18n="pkg1.f3">Basis-Integrationen</li>
           </ul>
-          <a href="#kontakt" class="pricing-card__btn">Kostenlos testen</a>
+          <a href="#kontakt" class="pricing-card__btn" data-i18n="pricing.cta_test">Kostenlos testen</a>
         </article>
 
         <article class="pricing-card pricing-card--featured">
-          <div class="pricing-card__badge">Beliebt</div>
+          <div class="pricing-card__badge" data-i18n="pricing.popular">Beliebt</div>
           <div class="pricing-card__icon">
             <img src="assets/icon-sales.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
           </div>
-          <h3 class="pricing-card__name">Sales &amp; Support KI</h3>
+          <h3 class="pricing-card__name" data-i18n="pkg2.name">Sales &amp; Support KI</h3>
           <div class="pricing-card__price">
-            <span class="pricing-card__trial">1 Woche kostenlos testen. Danach:</span>
+            <span class="pricing-card__trial" data-i18n="pkg2.trial">1 Woche kostenlos testen. Danach:</span>
             <span class="pricing-card__setup">995€ Setup</span>
-            <span class="pricing-card__monthly">+ 79€ / Monat</span>
+            <span class="pricing-card__monthly">+ 79€ / <span data-i18n="pricing.month">Monat</span></span>
           </div>
           <ul class="pricing-card__features">
-            <li>Lead-Qualifizierung 24/7</li>
-            <li>Terminbuchung</li>
-            <li>CRM-Integration</li>
-            <li>Multi-Channel-Support</li>
+            <li data-i18n="pkg2.f1">Lead-Qualifizierung 24/7</li>
+            <li data-i18n="pkg2.f2">Terminbuchung</li>
+            <li data-i18n="pkg2.f3">CRM-Integration</li>
+            <li data-i18n="pkg2.f4">Multi-Channel-Support</li>
           </ul>
-          <a href="#kontakt" class="pricing-card__btn pricing-card__btn--featured">Kostenlos testen</a>
+          <a href="#kontakt" class="pricing-card__btn pricing-card__btn--featured" data-i18n="pricing.cta_test">Kostenlos testen</a>
         </article>
 
         <article class="pricing-card">
           <div class="pricing-card__icon">
             <img src="assets/icon-deep.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
           </div>
-          <h3 class="pricing-card__name">Deep Automation</h3>
+          <h3 class="pricing-card__name" data-i18n="pkg3.name">Deep Automation</h3>
           <div class="pricing-card__price">
             <span class="pricing-card__setup">1.499€ Setup</span>
-            <span class="pricing-card__monthly">+ 149€ / Monat</span>
+            <span class="pricing-card__monthly">+ 149€ / <span data-i18n="pricing.month">Monat</span></span>
           </div>
           <ul class="pricing-card__features">
-            <li>ERP-Anbindung</li>
-            <li>Custom Workflows</li>
-            <li>Datenbank-Automatisierung</li>
-            <li>Dedizierter Support</li>
+            <li data-i18n="pkg3.f1">ERP-Anbindung</li>
+            <li data-i18n="pkg3.f2">Custom Workflows</li>
+            <li data-i18n="pkg3.f3">Datenbank-Automatisierung</li>
+            <li data-i18n="pkg3.f4">Dedizierter Support</li>
           </ul>
-          <a href="#kontakt" class="pricing-card__btn">Beratungsgespraech vereinbaren</a>
+          <a href="#kontakt" class="pricing-card__btn" data-i18n="pricing.cta_consult">Beratungsgespräch vereinbaren</a>
         </article>
       </div>
 
       <div class="pricing__table-wrapper">
-        <h3 class="pricing__table-title">Was ist inklusive?</h3>
+        <h3 class="pricing__table-title" data-i18n="table.title">Was ist inklusive?</h3>
         <table class="pricing__table" aria-label="Leistungsübersicht der Pakete">
           <thead>
             <tr>
-              <th scope="col">Leistung</th>
-              <th scope="col">Basis</th>
+              <th scope="col" data-i18n="table.feature">Leistung</th>
+              <th scope="col" data-i18n="table.basis">Basis</th>
               <th scope="col">Sales &amp; Support</th>
-              <th scope="col">Deep Automation</th>
+              <th scope="col" data-i18n="table.deep">Deep Automation</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Kostenlose Testwoche</td>
-              <td>✔</td>
-              <td>✔</td>
-              <td>–</td>
+              <td data-i18n="table.r1">Kostenlose Testwoche</td>
+              <td>✔</td><td>✔</td><td>–</td>
             </tr>
             <tr>
-              <td>Website &amp; WhatsApp Chat</td>
-              <td>✔</td>
-              <td>✔</td>
-              <td>✔</td>
+              <td data-i18n="table.r2">Website &amp; WhatsApp Chat</td>
+              <td>✔</td><td>✔</td><td>✔</td>
             </tr>
             <tr>
-              <td>Schnelle Einrichtung</td>
-              <td>✔</td>
-              <td>✔</td>
-              <td>✔</td>
+              <td data-i18n="table.r3">Schnelle Einrichtung</td>
+              <td>✔</td><td>✔</td><td>✔</td>
             </tr>
             <tr>
-              <td>24/7 Lead-Qualifizierung</td>
-              <td>–</td>
-              <td>✔</td>
-              <td>✔</td>
+              <td data-i18n="table.r4">24/7 Lead-Qualifizierung</td>
+              <td>–</td><td>✔</td><td>✔</td>
             </tr>
             <tr>
-              <td>Intelligente Terminbuchung</td>
-              <td>–</td>
-              <td>✔</td>
-              <td>✔</td>
+              <td data-i18n="table.r5">Intelligente Terminbuchung</td>
+              <td>–</td><td>✔</td><td>✔</td>
             </tr>
             <tr>
-              <td>Multi-Channel-Support (z.&nbsp;B. Website, WhatsApp, Instagram)</td>
-              <td>–</td>
-              <td>✔</td>
-              <td>✔</td>
+              <td data-i18n="table.r6">Multi-Channel-Support (z.&nbsp;B. Website, WhatsApp, Instagram)</td>
+              <td>–</td><td>✔</td><td>✔</td>
             </tr>
             <tr>
-              <td>CRM-Anbindung (z.&nbsp;B. Brevo, HubSpot)</td>
-              <td>–</td>
-              <td>✔</td>
-              <td>✔</td>
+              <td data-i18n="table.r7">CRM-Anbindung (z.&nbsp;B. Brevo, HubSpot)</td>
+              <td>–</td><td>✔</td><td>✔</td>
             </tr>
             <tr>
-              <td>Komplexe Workflows &amp; ERP-Anbindung</td>
-              <td>–</td>
-              <td>–</td>
-              <td>✔</td>
+              <td data-i18n="table.r8">Komplexe Workflows &amp; ERP-Anbindung</td>
+              <td>–</td><td>–</td><td>✔</td>
             </tr>
             <tr>
-              <td>Datenbank-Integrationen &amp; monatliche Optimierung</td>
-              <td>–</td>
-              <td>–</td>
-              <td>✔</td>
+              <td data-i18n="table.r9">Datenbank-Integrationen &amp; monatliche Optimierung</td>
+              <td>–</td><td>–</td><td>✔</td>
             </tr>
           </tbody>
         </table>
@@ -339,8 +311,8 @@
     <!-- Footer / Lead Bot -->
     <section class="lead" id="kontakt">
       <div class="lead__content">
-        <h2 class="lead__title">Genug gelesen – testen Sie uns live.</h2>
-        <p class="lead__subtitle">Stellen Sie unserer KI Ihre Fragen – direkt hier auf der Seite.</p>
+        <h2 class="lead__title" data-i18n="lead.title">Genug gelesen – testen Sie uns live.</h2>
+        <p class="lead__subtitle" data-i18n="lead.subtitle">Stellen Sie unserer KI Ihre Fragen – direkt hier auf der Seite.</p>
         <div class="lead__bot-container">
           <div class="lead__bot-glow" aria-hidden="true"></div>
           <div class="lead__bot-placeholder">
@@ -352,8 +324,8 @@
                 <path d="M24 36V40M16 40H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
               </svg>
             </div>
-            <p class="lead__bot-text">KI-Bot Platzhalter</p>
-            <span class="lead__bot-hint">Hier wird Ihr Chatbot eingebettet</span>
+            <p class="lead__bot-text" data-i18n="lead.bot_text">KI-Bot Platzhalter</p>
+            <span class="lead__bot-hint" data-i18n="lead.bot_hint">Hier wird Ihr Chatbot eingebettet</span>
           </div>
         </div>
       </div>
@@ -370,5 +342,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>

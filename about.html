@@ -30,12 +30,17 @@
 
       <div class="navbar__right">
         <ul class="navbar__links">
-          <li><a href="index.html#pakete" class="navbar__link navbar__link--pakete"><span class="navbar__link-full">Produkt-Pakete</span><span class="navbar__link-short">Pakete</span></a></li>
-          <li><a href="about.html" class="navbar__link navbar__link--active" aria-current="page">Über uns</a></li>
+          <li><a href="index.html#pakete" class="navbar__link navbar__link--pakete"><span class="navbar__link-full" data-i18n="nav.packages">Produkt-Pakete</span><span class="navbar__link-short" data-i18n="nav.packages_short">Pakete</span></a></li>
+          <li><a href="about.html" class="navbar__link navbar__link--active" aria-current="page" data-i18n="nav.about">Über uns</a></li>
+          <li>
+            <button class="lang-switch" id="langSwitch" aria-label="Switch language">
+              <span class="lang-switch__label" id="langLabel">EN</span>
+            </button>
+          </li>
         </ul>
 
         <a href="index.html#kontakt" class="navbar__cta">
-          <span>Kontakt</span>
+          <span data-i18n="nav.contact">Kontakt</span>
           <svg class="navbar__cta-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
             <path d="M3.75 9H14.25M14.25 9L9.75 4.5M14.25 9L9.75 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -47,44 +52,44 @@
   <main>
     <section class="about">
       <div class="about__inner">
-        <span class="about__label">Über uns</span>
+        <span class="about__label" data-i18n="about.label">Über uns</span>
         <h1 class="about__title">Digital Efficiency Labs</h1>
-        <p class="about__intro">
+        <p class="about__intro" data-i18n="about.intro">
           Wir sind <span class="about__highlight">DEL-systems</span> – eine KI-Automatisierungs-Agentur,
           die Unternehmen dabei hilft, repetitive Prozesse intelligent zu delegieren und
           wertvolle Zeit zurückzugewinnen.
         </p>
 
         <article class="about__card">
-          <h2>Unsere Mission</h2>
-          <p>
+          <h2 data-i18n="about.mission_title">Unsere Mission</h2>
+          <p data-i18n="about.mission_p1">
             Wir glauben, dass Menschen ihre Kreativität und Strategie einbringen sollten –
             nicht in E-Mail-Fluten und Copy-Paste-Aufgaben versinken. Deshalb entwickeln wir
             maßgeschneiderte KI-Agenten, die genau dort ansetzen, wo manuelle Arbeit am meisten kostet.
           </p>
-          <p>
+          <p data-i18n="about.mission_p2">
             Von der ersten Lead-Qualifizierung bis zur komplexen ERP-Automatisierung:
-            Wir bauen Systeme, die Ihren Praeferenzen entsprechen und innerhalb weniger Tage betriebsbereit sind.
+            Wir bauen Systeme, die Ihren Präferenzen entsprechen und innerhalb weniger Tage betriebsbereit sind.
           </p>
         </article>
 
         <article class="about__card">
-          <h2>Was uns auszeichnet</h2>
-          <p>
+          <h2 data-i18n="about.diff_title">Was uns auszeichnet</h2>
+          <p data-i18n="about.diff_p1">
             Schnelle Implementierung statt monatelangem Warten. Transparente Preise statt
-            undurchsichtiger Beratungshonorare. Und ein Team, das Technologie fuer messbare
+            undurchsichtiger Beratungshonorare. Und ein Team, das Technologie für messbare
             Ergebnisse in Ihrem Business einsetzt.
           </p>
         </article>
 
         <article class="about__card">
-          <h2>Bereit für den nächsten Schritt?</h2>
-          <p>
-            Entdecken Sie unsere <a href="index.html#pakete" class="about__highlight">Produkt-Pakete</a>
+          <h2 data-i18n="about.next_title">Bereit für den nächsten Schritt?</h2>
+          <p data-i18n="about.next_p1">
+            Entdecken Sie unsere <a href="index.html#pakete" class="about__highlight" data-i18n="about.packages_link">Produkt-Pakete</a>
             oder testen Sie unsere KI direkt auf der Startseite.
             Wir freuen uns auf Ihre Anfrage.
           </p>
-          <p>
+          <p data-i18n="about.next_p2">
             Für formelle Anfragen erreichen Sie uns auch per E-Mail unter
             <a href="mailto:info@del-systems.at" class="about__highlight">info@del-systems.at</a>.
           </p>
@@ -102,5 +107,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
