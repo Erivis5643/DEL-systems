@@ -143,8 +143,8 @@
       }
 
       // Towards the end of a locked card, gradually become less transparent.
-      const progress = Math.min(1, Math.abs(rect.top) / (vh * 0.62));
-      const alpha = 0.62 + progress * 0.24;
+      const progress = Math.min(1, Math.abs(rect.top) / (vh * 0.55));
+      const alpha = 0.74 + progress * 0.18;
       section.style.setProperty('--story-panel-alpha', alpha.toFixed(3));
     });
   }
