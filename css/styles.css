@@ -2145,6 +2145,26 @@ ul {
   }
 }
 
+/* ---- Table check/cross indicators ---- */
+
+.tbl-yes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tbl-yes svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.tbl-no {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
 /* ---- Language Switcher ---- */
 
 .lang-switch {
@@ -2239,10 +2259,12 @@ ul {
   max-width: 100%;
 }
 
-.story__section--4 .story__flow {
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(1.2rem, 2.8vw, 2.4rem);
-  width: 100%;
+@media (min-width: 769px) {
+  .story__section--4 .story__flow {
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1.2rem, 2.8vw, 2.4rem);
+    width: 100%;
+  }
 }
 
 /* On medium screens keep 4-col but scale down */
