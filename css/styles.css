@@ -2151,30 +2151,22 @@ ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 194, 203, 0.08);
-  border: 1px solid rgba(0, 194, 203, 0.22);
-  border-radius: var(--navbar-radius);
-  color: var(--accent-light);
+  background: none;
+  border: none;
+  color: var(--text-muted);
   font-family: var(--font-body);
-  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-size: clamp(0.68rem, 2.2vw, 0.88rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  padding: 0.28rem 0.62rem;
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
+  padding: 0;
+  transition: color 0.3s ease;
   white-space: nowrap;
   line-height: 1;
 }
 
 .lang-switch:hover {
-  background: rgba(0, 194, 203, 0.16);
-  border-color: rgba(0, 194, 203, 0.45);
   color: var(--text-primary);
-  box-shadow: 0 0 14px rgba(0, 194, 203, 0.2);
 }
 
 .lang-switch__label {
@@ -2228,37 +2220,48 @@ ul {
   filter: var(--glow-accent-filter);
 }
 
-/* ---- Ablauf section: full-width on desktop ---- */
+/* ---- Ablauf section: full-width, even columns, opaque background ---- */
 
-@media (min-width: 769px) {
-  .story__section--4 .story__inner--flow {
-    max-width: 100%;
-    padding: 0 2vw;
-  }
-
-  .story__section--4 .story__flow {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(1rem, 2.5vw, 2.2rem);
-  }
+.story__section--4 {
+  padding-left: 4vw;
+  padding-right: 4vw;
+  background: rgba(13, 27, 42, 0.98);
 }
 
-/* On medium screens keep 4-col but tighter */
+.story__section--4 .story__inner--flow {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.story__section--4 .story__text {
+  width: 100%;
+  max-width: 100%;
+}
+
+.story__section--4 .story__flow {
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.2rem, 2.8vw, 2.4rem);
+  width: 100%;
+}
+
+/* On medium screens keep 4-col but scale down */
 @media (min-width: 769px) and (max-width: 1100px) {
   .story__section--4 .story__flow {
-    gap: 1rem;
+    gap: clamp(0.8rem, 1.8vw, 1.4rem);
   }
 
-  .story__flow-badge {
-    width: 72px;
-    height: 72px;
+  .story__section--4 .story__flow-badge {
+    width: 68px;
+    height: 68px;
   }
 
-  .story__flow-title {
-    font-size: 0.98rem;
+  .story__section--4 .story__flow-title {
+    font-size: 0.95rem;
   }
 
-  .story__flow-text {
-    font-size: 0.88rem;
+  .story__section--4 .story__flow-text {
+    font-size: 0.86rem;
   }
 }
 
