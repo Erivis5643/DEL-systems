@@ -204,7 +204,7 @@ ul {
   inset: 0;
   background-image: var(--grain-svg);
   background-size: 200px 200px;
-  opacity: 0.035;
+  opacity: 0.07;
   mix-blend-mode: overlay;
   pointer-events: none;
   will-change: opacity;
@@ -506,7 +506,7 @@ ul {
   inset: 0;
   background-image: var(--grain-svg);
   background-size: 100px 100px;
-  opacity: 0.06;
+  opacity: 0.1;
   mix-blend-mode: overlay;
   pointer-events: none;
 }
@@ -860,7 +860,7 @@ ul {
   box-shadow:
     0 0 22px rgba(0, 194, 203, 0.1),
     inset 0 1px 0 rgba(0, 194, 203, 0.08);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .story__flow-badge::after {
@@ -869,10 +869,10 @@ ul {
   inset: 0;
   background-image: var(--grain-svg);
   background-size: 84px 84px;
-  opacity: 0.06;
+  opacity: 0.08;
   mix-blend-mode: overlay;
   pointer-events: none;
-}
+  z-index: 2;
 }
 
 .story__flow-badge::before {
@@ -886,19 +886,20 @@ ul {
 
 .story__flow-number {
   position: absolute;
-  top: -0.45rem;
-  right: -0.35rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--accent), var(--accent-light));
   color: var(--bg-deep);
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 12px rgba(94, 234, 212, 0.35);
+  z-index: 3;
 }
 
 .story__flow-icon {
@@ -1061,7 +1062,7 @@ ul {
   inset: 0;
   background-image: var(--grain-svg);
   background-size: 200px 200px;
-  opacity: 0.04;
+  opacity: 0.08;
   mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 0;
@@ -1126,7 +1127,7 @@ ul {
   border-radius: inherit;
   background-image: var(--grain-svg);
   background-size: 180px 180px;
-  opacity: 0.04;
+  opacity: 0.08;
   mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 0;
@@ -1460,7 +1461,7 @@ ul {
 }
 
 .about__inner {
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -1485,6 +1486,10 @@ ul {
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--text-primary) 60%, var(--accent-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .about__intro {
@@ -1494,14 +1499,80 @@ ul {
   margin-bottom: 3rem;
 }
 
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .about__card {
+  position: relative;
   padding: 2.5rem;
   border-radius: 1.25rem;
-  background: var(--bg-surface);
+  background: rgba(13, 27, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.4s ease;
   content-visibility: auto;
   contain-intrinsic-size: 420px;
+}
+
+.about__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-svg);
+  background-size: 180px 180px;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about__card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about__card-glow {
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 194, 203, 0.15), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about__card-glow--wide {
+  width: 320px;
+  height: 320px;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(0, 194, 203, 0.12), transparent 70%);
+}
+
+.about__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 194, 203, 0.2);
+  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 194, 203, 0.06);
+}
+
+.about__card--accent {
+  border-color: rgba(0, 194, 203, 0.15);
+}
+
+.about__card--cta {
+  text-align: center;
+  padding: 3rem 2.5rem;
+  border-color: rgba(0, 194, 203, 0.12);
 }
 
 .about__card h2 {
@@ -1513,7 +1584,7 @@ ul {
 }
 
 .about__card p {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--text-muted);
   line-height: 1.8;
   margin-bottom: 1rem;
@@ -1531,6 +1602,12 @@ ul {
 .about__card a.about__highlight:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .navbar__link--active {
