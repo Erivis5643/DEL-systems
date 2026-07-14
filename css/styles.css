@@ -194,7 +194,20 @@ ul {
     linear-gradient(rgba(0, 194, 203, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 194, 203, 0.035) 1px, transparent 1px);
   background-size: 60px 60px;
-  opacity: 1;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 85%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 85%);
+}
+
+/* Full-page film grain – sits above orbs, below content */
+.ambient__grain {
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-svg);
+  background-size: 200px 200px;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  will-change: opacity;
 }
 
 /* Grainy liquid glass utility */
@@ -467,6 +480,7 @@ ul {
 }
 
 .hero__badge {
+  position: relative;
   display: inline-flex;
   align-self: flex-start;
   width: fit-content;
@@ -483,6 +497,18 @@ ul {
   background: rgba(0, 194, 203, 0.08);
   border: 1px solid rgba(0, 194, 203, 0.2);
   margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.hero__badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-svg);
+  background-size: 100px 100px;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 
 .hero__badge-dot {
@@ -834,6 +860,19 @@ ul {
   box-shadow:
     0 0 22px rgba(0, 194, 203, 0.1),
     inset 0 1px 0 rgba(0, 194, 203, 0.08);
+  overflow: hidden;
+}
+
+.story__flow-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-svg);
+  background-size: 84px 84px;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
 }
 
 .story__flow-badge::before {
@@ -1005,6 +1044,7 @@ ul {
 }
 
 .pricing__table {
+  position: relative;
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
@@ -1013,6 +1053,23 @@ ul {
   border-radius: 0.9rem;
   overflow: hidden;
   border: 1px solid rgba(94, 234, 212, 0.2);
+}
+
+.pricing__table::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-svg);
+  background-size: 200px 200px;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pricing__table > * {
+  position: relative;
+  z-index: 1;
 }
 
 .pricing__table th,
@@ -1058,13 +1115,32 @@ ul {
   border-radius: 1.25rem;
   background: var(--bg-surface);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease;
+  transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.4s ease;
   overflow: visible;
 }
 
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: var(--grain-svg);
+  background-size: 180px 180px;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pricing-card > * {
+  position: relative;
+  z-index: 1;
+}
+
 .pricing-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 194, 203, 0.15);
+  transform: translateY(-6px);
+  border-color: rgba(0, 194, 203, 0.2);
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 194, 203, 0.08);
 }
 
 .pricing-card--featured {
@@ -1075,6 +1151,15 @@ ul {
     inset 0 1px 0 rgba(0, 194, 203, 0.1);
   animation: featured-glow 4s ease infinite alternate;
   margin-top: 0.25rem;
+}
+
+.pricing-card--featured:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 194, 203, 0.4);
+  box-shadow:
+    0 24px 70px -20px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(0, 194, 203, 0.18),
+    0 0 100px rgba(0, 194, 203, 0.1);
 }
 
 @keyframes featured-glow {
@@ -2163,6 +2248,28 @@ ul {
   color: var(--text-muted);
   font-size: 1.1rem;
   line-height: 1;
+}
+
+/* ---- Accessibility: focus-visible ---- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Performance: content-visibility ---- */
+
+.story__section,
+.pricing,
+.lead,
+.faq,
+.footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 /* ---- Language Switcher ---- */
