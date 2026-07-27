@@ -1451,6 +1451,38 @@ ul {
   color: var(--text-primary);
 }
 
+.footer__social {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.7rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s var(--ease-out-expo), color 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
+}
+
+.footer__social-link:hover {
+  color: var(--accent-light);
+  background: rgba(0, 194, 203, 0.08);
+  border-color: rgba(0, 194, 203, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px -8px rgba(0, 194, 203, 0.3);
+}
+
+.footer__social-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* ---- About Page ---- */
 
 .about {
@@ -2012,6 +2044,10 @@ ul {
 
   .footer__contact {
     font-size: 0.82rem;
+  }
+
+  .footer__social {
+    margin-top: 0.5rem;
   }
 }
 
