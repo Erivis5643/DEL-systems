@@ -786,7 +786,11 @@ ul {
 
 .story__label {
   display: inline-block;
+<<<<<<< HEAD
   font-size: 1.25rem;
+=======
+  font-size: 0.75rem;
+>>>>>>> parent of 5bf2b7e (Update styles.css)
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
